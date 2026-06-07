@@ -9,8 +9,8 @@ const ParticlesBackground = () => {
     let animationFrameId;
     let particles = [];
 
-    // Colors: Turquoise, American Blue, American Red, and Slate
-    const colors = ['#40E0D0', '#0A3161', '#B31942', '#94A3B8'];
+    // Colors: Vibrant Indigo, Violet, Hot Pink, Amber
+    const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b'];
 
     const resize = () => {
       canvas.width = window.innerWidth;

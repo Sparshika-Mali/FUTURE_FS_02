@@ -4,7 +4,7 @@
 
 @layer utilities {
   .glass-panel {
-    @apply bg-white border border-formal-border shadow-sm rounded-2xl relative overflow-hidden;
+    @apply bg-white border border-vibrant-border shadow-sm rounded-2xl relative overflow-hidden;
   }
   
   .animation-delay-2000 {

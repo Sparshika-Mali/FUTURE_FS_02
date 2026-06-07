@@ -38,29 +38,29 @@ export default function ClientDashboard() {
 
   const getStatusColor = (status) => {
     switch(status) {
-      case 'New': return 'text-formal-accent bg-teal-50 border-teal-200';
-      case 'Contacted': return 'text-formal-warning bg-amber-50 border-amber-200';
-      case 'Converted': return 'text-formal-danger bg-red-50 border-red-200';
+      case 'New': return 'text-vibrant-primary bg-indigo-50 border-indigo-200';
+      case 'Contacted': return 'text-vibrant-warning bg-orange-50 border-orange-200';
+      case 'Converted': return 'text-vibrant-success bg-green-50 border-green-200';
       default: return 'text-slate-500 bg-slate-50 border-slate-200';
     }
   };
 
   return (
-    <div className="min-h-screen bg-formal-light relative flex flex-col font-sans overflow-hidden">
+    <div className="min-h-screen bg-vibrant-light relative flex flex-col font-sans overflow-hidden">
       <ParticlesBackground />
-      <header className="bg-white/80 backdrop-blur-md border-b border-formal-border sticky top-0 z-20 px-6 py-4 flex justify-between items-center shadow-sm">
+      <header className="bg-white/80 backdrop-blur-md border-b border-vibrant-border sticky top-0 z-20 px-6 py-4 flex justify-between items-center shadow-sm">
         <div>
-          <h1 className="text-xl font-bold text-formal-primary tracking-wide">Client Portal</h1>
-          <p className="text-sm text-formal-secondary">Sparshika Communication Relay</p>
+          <h1 className="text-xl font-bold text-vibrant-primary tracking-wide">Client Portal</h1>
+          <p className="text-sm text-vibrant-secondary">Sparshika Communication Relay</p>
         </div>
         <div className="flex items-center space-x-6">
-          <div className="hidden md:flex items-center space-x-2 text-formal-secondary">
+          <div className="hidden md:flex items-center space-x-2 text-vibrant-secondary">
             <UserIcon size={16} />
             <span className="text-sm font-medium">{user.name}</span>
           </div>
           <button 
             onClick={handleLogout}
-            className="flex items-center space-x-2 text-formal-secondary hover:text-formal-danger transition-colors font-medium"
+            className="flex items-center space-x-2 text-vibrant-secondary hover:text-vibrant-danger transition-colors font-medium"
           >
             <LogOut size={18} />
             <span>Log Out</span>
@@ -70,23 +70,23 @@ export default function ClientDashboard() {
 
       <main className="flex-1 p-6 relative z-10 flex flex-col space-y-6 max-w-4xl mx-auto w-full mt-8">
         {!profile ? (
-          <div className="bg-white border border-formal-border p-10 text-center rounded-xl shadow-sm">
-            <Activity className="animate-pulse mx-auto text-formal-primary mb-4" size={32} />
-            <h2 className="text-lg font-medium text-formal-dark">Loading your profile...</h2>
+          <div className="bg-white border border-vibrant-border p-10 text-center rounded-xl shadow-sm">
+            <Activity className="animate-pulse mx-auto text-vibrant-primary mb-4" size={32} />
+            <h2 className="text-lg font-medium text-vibrant-dark">Loading your profile...</h2>
           </div>
         ) : (
           <>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white border border-formal-border p-8 rounded-xl shadow-sm relative overflow-hidden"
+              className="bg-white border border-vibrant-border p-8 rounded-xl shadow-sm relative overflow-hidden"
             >
-              <h2 className="text-sm font-bold text-formal-secondary uppercase mb-2">Current Status</h2>
+              <h2 className="text-sm font-bold text-vibrant-secondary uppercase mb-2">Current Status</h2>
               <div className={`inline-block px-6 py-2 rounded-full font-bold text-sm border ${getStatusColor(profile.status)}`}>
                 {profile.status}
               </div>
               <p className="mt-4 text-slate-600 leading-relaxed">
-                Welcome to your client portal, <span className="font-semibold text-formal-dark">{profile.name}</span>. We are currently reviewing your account details. 
+                Welcome to your client portal, <span className="font-semibold text-vibrant-dark">{profile.name}</span>. We are currently reviewing your account details. 
                 Any updates from our team will appear in your activity log below.
               </p>
             </motion.div>
@@ -95,10 +95,10 @@ export default function ClientDashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white border border-formal-border rounded-xl shadow-sm flex-1 flex flex-col overflow-hidden"
+              className="bg-white border border-vibrant-border rounded-xl shadow-sm flex-1 flex flex-col overflow-hidden"
             >
-              <div className="bg-slate-50 p-6 border-b border-formal-border">
-                <h2 className="text-lg font-bold text-formal-dark">Activity Log</h2>
+              <div className="bg-slate-50 p-6 border-b border-vibrant-border">
+                <h2 className="text-lg font-bold text-vibrant-dark">Activity Log</h2>
               </div>
               <div className="p-6 flex-1 min-h-[300px] text-sm text-slate-700 whitespace-pre-wrap overflow-y-auto bg-white">
                 {profile.notes || "No recent activity recorded on your account."}

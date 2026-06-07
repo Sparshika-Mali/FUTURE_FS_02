@@ -103,9 +103,9 @@ export default function AdminDashboard() {
 
   const getStatusColor = (status) => {
     switch(status) {
-      case 'New': return 'text-formal-accent bg-teal-50 border-teal-200';
-      case 'Contacted': return 'text-formal-warning bg-amber-50 border-amber-200';
-      case 'Converted': return 'text-formal-danger bg-red-50 border-red-200';
+      case 'New': return 'text-vibrant-primary bg-indigo-50 border-indigo-200';
+      case 'Contacted': return 'text-vibrant-warning bg-orange-50 border-orange-200';
+      case 'Converted': return 'text-vibrant-success bg-green-50 border-green-200';
       default: return 'text-slate-500 bg-slate-50 border-slate-200';
     }
   };
@@ -115,16 +115,16 @@ export default function AdminDashboard() {
   const convertedLeads = leads.filter(l => l.status === 'Converted').length;
 
   return (
-    <div className="min-h-screen bg-formal-light relative overflow-hidden flex flex-col font-sans">
+    <div className="min-h-screen bg-vibrant-light relative overflow-hidden flex flex-col font-sans">
       <ParticlesBackground />
-      <header className="bg-white/80 backdrop-blur-md border-b border-formal-border sticky top-0 z-20 px-6 py-4 flex justify-between items-center shadow-sm">
+      <header className="bg-white/80 backdrop-blur-md border-b border-vibrant-border sticky top-0 z-20 px-6 py-4 flex justify-between items-center shadow-sm">
         <div>
-          <h1 className="text-xl font-bold text-formal-primary tracking-wide">Sparshika CRM</h1>
-          <p className="text-sm text-formal-secondary">Administrator Dashboard</p>
+          <h1 className="text-xl font-bold text-vibrant-primary tracking-wide">Mini CRM</h1>
+          <p className="text-sm text-vibrant-secondary">Administrator Dashboard</p>
         </div>
         <button 
           onClick={handleLogout}
-          className="flex items-center space-x-2 text-formal-secondary hover:text-formal-danger transition-colors font-medium"
+          className="flex items-center space-x-2 text-vibrant-secondary hover:text-vibrant-danger transition-colors font-medium"
         >
           <LogOut size={18} />
           <span>Log Out</span>
@@ -138,13 +138,13 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white p-6 rounded-xl shadow-sm border border-formal-border flex items-center justify-between"
+            className="bg-white p-6 rounded-xl shadow-sm border border-vibrant-border flex items-center justify-between"
           >
             <div>
-              <p className="text-formal-secondary text-sm font-medium mb-1">Total Leads</p>
-              <h2 className="text-4xl font-bold text-formal-dark">{totalLeads}</h2>
+              <p className="text-vibrant-secondary text-sm font-medium mb-1">Total Leads</p>
+              <h2 className="text-4xl font-bold text-vibrant-dark">{totalLeads}</h2>
             </div>
-            <div className="p-3 bg-blue-50 rounded-lg text-formal-primary">
+            <div className="p-3 bg-indigo-50 rounded-lg text-vibrant-primary">
               <Users size={24} />
             </div>
           </motion.div>
@@ -153,13 +153,13 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white p-6 rounded-xl shadow-sm border border-formal-border flex items-center justify-between"
+            className="bg-white p-6 rounded-xl shadow-sm border border-vibrant-border flex items-center justify-between"
           >
             <div>
-              <p className="text-formal-secondary text-sm font-medium mb-1">Contacted</p>
-              <h2 className="text-4xl font-bold text-formal-warning">{contactedLeads}</h2>
+              <p className="text-vibrant-secondary text-sm font-medium mb-1">Contacted</p>
+              <h2 className="text-4xl font-bold text-vibrant-warning">{contactedLeads}</h2>
             </div>
-            <div className="p-3 bg-amber-50 rounded-lg text-formal-warning">
+            <div className="p-3 bg-orange-50 rounded-lg text-vibrant-warning">
               <PhoneCall size={24} />
             </div>
           </motion.div>
@@ -168,13 +168,13 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white p-6 rounded-xl shadow-sm border border-formal-border flex items-center justify-between"
+            className="bg-white p-6 rounded-xl shadow-sm border border-vibrant-border flex items-center justify-between"
           >
             <div>
-              <p className="text-formal-secondary text-sm font-medium mb-1">Converted</p>
-              <h2 className="text-4xl font-bold text-formal-success">{convertedLeads}</h2>
+              <p className="text-vibrant-secondary text-sm font-medium mb-1">Converted</p>
+              <h2 className="text-4xl font-bold text-vibrant-success">{convertedLeads}</h2>
             </div>
-            <div className="p-3 bg-emerald-50 rounded-lg text-formal-success">
+            <div className="p-3 bg-green-50 rounded-lg text-vibrant-success">
               <CheckCircle size={24} />
             </div>
           </motion.div>
@@ -184,21 +184,21 @@ export default function AdminDashboard() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-white rounded-xl shadow-sm border border-formal-border flex-1 overflow-hidden flex flex-col"
+          className="bg-white rounded-xl shadow-sm border border-vibrant-border flex-1 overflow-hidden flex flex-col"
         >
-          <div className="p-6 border-b border-formal-border flex justify-between items-center bg-slate-50/50">
-            <h2 className="text-lg font-semibold text-formal-dark">Client Roster</h2>
+          <div className="p-6 border-b border-vibrant-border flex justify-between items-center bg-slate-50/50">
+            <h2 className="text-lg font-semibold text-vibrant-dark">Client Roster</h2>
           </div>
           
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-slate-50 text-formal-secondary text-sm">
-                  <th className="p-4 font-semibold border-b border-formal-border">Name</th>
-                  <th className="p-4 font-semibold border-b border-formal-border">Email</th>
-                  <th className="p-4 font-semibold border-b border-formal-border">Source</th>
-                  <th className="p-4 font-semibold border-b border-formal-border">Status</th>
-                  <th className="p-4 font-semibold border-b border-formal-border text-right">Actions</th>
+                <tr className="bg-slate-50 text-vibrant-secondary text-sm">
+                  <th className="p-4 font-semibold border-b border-vibrant-border">Name</th>
+                  <th className="p-4 font-semibold border-b border-vibrant-border">Email</th>
+                  <th className="p-4 font-semibold border-b border-vibrant-border">Source</th>
+                  <th className="p-4 font-semibold border-b border-vibrant-border">Status</th>
+                  <th className="p-4 font-semibold border-b border-vibrant-border text-right">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -225,7 +225,7 @@ export default function AdminDashboard() {
                         <div className="flex justify-end space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
                           <button 
                             onClick={(e) => { e.stopPropagation(); openDrawer(lead); }}
-                            className="text-slate-400 hover:text-formal-primary transition-colors p-2 rounded hover:bg-white shadow-sm border border-transparent hover:border-slate-200"
+                            className="text-slate-400 hover:text-vibrant-primary transition-colors p-2 rounded hover:bg-white shadow-sm border border-transparent hover:border-slate-200"
                             title="Edit Lead"
                           >
                             <Edit size={16} />
@@ -273,7 +273,7 @@ export default function AdminDashboard() {
               className="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl border-l border-slate-200 z-50 flex flex-col"
             >
               <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50">
-                <h2 className="text-lg font-bold text-formal-dark">Update Lead Details</h2>
+                <h2 className="text-lg font-bold text-vibrant-dark">Update Lead Details</h2>
                 <button onClick={closeDrawer} className="text-slate-400 hover:text-slate-700 transition-colors">
                   <X size={20} />
                 </button>
@@ -281,8 +281,8 @@ export default function AdminDashboard() {
 
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
                 <div className="bg-slate-50 p-4 rounded-lg border border-slate-100">
-                  <h3 className="text-xs text-formal-secondary font-semibold uppercase mb-1">Contact Info</h3>
-                  <p className="text-lg font-bold text-formal-dark">{selectedLead?.name}</p>
+                  <h3 className="text-xs text-vibrant-secondary font-semibold uppercase mb-1">Contact Info</h3>
+                  <p className="text-lg font-bold text-vibrant-dark">{selectedLead?.name}</p>
                   <p className="text-slate-600 text-sm">{selectedLead?.email}</p>
                   <p className="text-xs text-slate-500 mt-2">Source: {selectedLead?.source}</p>
                 </div>
@@ -292,7 +292,7 @@ export default function AdminDashboard() {
                   <select 
                     value={editStatus}
                     onChange={(e) => setEditStatus(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-700 focus:outline-none focus:border-formal-primary focus:ring-1 focus:ring-formal-primary transition-all shadow-sm"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-700 focus:outline-none focus:border-vibrant-primary focus:ring-1 focus:ring-vibrant-primary transition-all shadow-sm"
                   >
                     <option value="New">New</option>
                     <option value="Contacted">Contacted</option>
@@ -305,7 +305,7 @@ export default function AdminDashboard() {
                   <textarea 
                     value={newNote}
                     onChange={(e) => setNewNote(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-700 focus:outline-none focus:border-formal-primary focus:ring-1 focus:ring-formal-primary transition-all h-24 resize-none shadow-sm"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-700 focus:outline-none focus:border-vibrant-primary focus:ring-1 focus:ring-vibrant-primary transition-all h-24 resize-none shadow-sm"
                     placeholder="Enter meeting notes, call summaries, etc..."
                   />
                 </div>
@@ -323,7 +323,7 @@ export default function AdminDashboard() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleUpdateLead}
-                  className="w-full bg-formal-primary text-white font-semibold py-3 rounded-lg hover:bg-formal-accent transition-all shadow-sm"
+                  className="w-full bg-vibrant-primary text-white font-semibold py-3 rounded-lg hover:bg-vibrant-accent transition-all shadow-sm"
                 >
                   Save Changes
                 </motion.button>

@@ -7,21 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        formal: {
-          primary: '#0A3161',    // American Blue
-          secondary: '#475569',  // Slate 600
-          accent: '#40E0D0',     // Turquoise
-          light: '#f8fafc',      // Slate 50
-          dark: '#0f172a',       // Slate 900
-          success: '#10b981',    // Emerald 500
-          warning: '#f59e0b',    // Amber 500
-          danger: '#B31942',     // American Red
-          border: '#e2e8f0',     // Slate 200
+        vibrant: {
+          primary: '#6366f1',    // Indigo 500 (Vibrant Blue/Purple)
+          secondary: '#8b5cf6',  // Violet 500
+          accent: '#ec4899',     // Pink 500 (Hot Pink)
+          light: '#fdf4ff',      // Fuchsia 50 (Very light vibrant tint)
+          dark: '#312e81',       // Indigo 900
+          success: '#22c55e',    // Green 500 (Vibrant Green)
+          warning: '#f97316',    // Orange 500 (Vibrant Orange)
+          danger: '#ef4444',     // Red 500 (Vibrant Red)
+          border: '#e9d5ff',     // Purple 200
           card: '#ffffff'
         }
       },
       backgroundImage: {
-        'formal-gradient': 'linear-gradient(to bottom right, #ffffff, #f1f5f9, #e2e8f0)',
+        'vibrant-gradient': 'linear-gradient(to bottom right, #fdf4ff, #fae8ff, #f3e8ff)',
       },
       animation: {
         float: "float 6s ease-in-out infinite",
