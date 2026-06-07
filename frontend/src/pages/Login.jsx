@@ -115,7 +115,7 @@ export default function Login() {
             <motion.button 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-vibrant-primary hover:bg-vibrant-accent text-white font-semibold py-3 rounded-xl transition-all mt-2 border-none shadow-md"
+              className="w-full bg-indigo-500 hover:bg-pink-500 text-white font-semibold py-3 rounded-xl transition-all mt-2 border-none shadow-md"
               type="submit"
             >
               Log In
@@ -129,7 +129,7 @@ export default function Login() {
           transition={{ delay: 0.8 }}
           className="mt-8 text-center text-sm text-vibrant-secondary"
         >
-          Don't have an account? <Link to="/register" className="text-vibrant-accent font-semibold hover:text-vibrant-primary transition-colors underline-offset-4 hover:underline">Register Here</Link>
+          Don't have an account? <Link to="/register" className="text-pink-500 font-semibold hover:text-indigo-500 transition-colors underline-offset-4 hover:underline">Register Here</Link>
         </motion.div>
       </motion.div>
     </div>
