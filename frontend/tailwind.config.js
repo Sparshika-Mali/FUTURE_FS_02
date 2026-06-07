@@ -8,40 +8,26 @@ export default {
     extend: {
       colors: {
         formal: {
-          primary: '#2563eb',    // Blue 600
+          primary: '#0A3161',    // American Blue
           secondary: '#475569',  // Slate 600
-          accent: '#3b82f6',     // Blue 500
+          accent: '#40E0D0',     // Turquoise
           light: '#f8fafc',      // Slate 50
           dark: '#0f172a',       // Slate 900
           success: '#10b981',    // Emerald 500
           warning: '#f59e0b',    // Amber 500
+          danger: '#B31942',     // American Red
           border: '#e2e8f0',     // Slate 200
           card: '#ffffff'
         }
       },
       backgroundImage: {
-        'formal-gradient': 'linear-gradient(to bottom right, #f8fafc, #e2e8f0, #cbd5e1)',
+        'formal-gradient': 'linear-gradient(to bottom right, #ffffff, #f1f5f9, #e2e8f0)',
       },
       animation: {
-        blob: "blob 7s infinite",
         float: "float 6s ease-in-out infinite",
         gradient: "gradient 8s ease infinite",
       },
       keyframes: {
-        blob: {
-          "0%": {
-            transform: "translate(0px, 0px) scale(1)",
-          },
-          "33%": {
-            transform: "translate(30px, -50px) scale(1.1)",
-          },
-          "66%": {
-            transform: "translate(-20px, 20px) scale(0.9)",
-          },
-          "100%": {
-            transform: "translate(0px, 0px) scale(1)",
-          },
-        },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },

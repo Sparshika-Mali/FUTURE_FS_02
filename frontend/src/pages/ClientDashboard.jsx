@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { LogOut, Activity, User as UserIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import ParticlesBackground from '../components/ParticlesBackground';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
@@ -37,18 +38,19 @@ export default function ClientDashboard() {
 
   const getStatusColor = (status) => {
     switch(status) {
-      case 'New': return 'text-formal-primary bg-blue-50 border-blue-200';
+      case 'New': return 'text-formal-accent bg-teal-50 border-teal-200';
       case 'Contacted': return 'text-formal-warning bg-amber-50 border-amber-200';
-      case 'Converted': return 'text-formal-success bg-emerald-50 border-emerald-200';
+      case 'Converted': return 'text-formal-danger bg-red-50 border-red-200';
       default: return 'text-slate-500 bg-slate-50 border-slate-200';
     }
   };
 
   return (
-    <div className="min-h-screen bg-formal-light relative flex flex-col font-sans">
-      <header className="bg-white border-b border-formal-border sticky top-0 z-20 px-6 py-4 flex justify-between items-center shadow-sm">
+    <div className="min-h-screen bg-formal-light relative flex flex-col font-sans overflow-hidden">
+      <ParticlesBackground />
+      <header className="bg-white/80 backdrop-blur-md border-b border-formal-border sticky top-0 z-20 px-6 py-4 flex justify-between items-center shadow-sm">
         <div>
-          <h1 className="text-xl font-bold text-formal-dark tracking-wide">Client Portal</h1>
+          <h1 className="text-xl font-bold text-formal-primary tracking-wide">Client Portal</h1>
           <p className="text-sm text-formal-secondary">Sparshika Communication Relay</p>
         </div>
         <div className="flex items-center space-x-6">
@@ -58,7 +60,7 @@ export default function ClientDashboard() {
           </div>
           <button 
             onClick={handleLogout}
-            className="flex items-center space-x-2 text-formal-secondary hover:text-red-600 transition-colors font-medium"
+            className="flex items-center space-x-2 text-formal-secondary hover:text-formal-danger transition-colors font-medium"
           >
             <LogOut size={18} />
             <span>Log Out</span>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import { UserPlus, Mail, Lock, User } from 'lucide-react';
-
+import ParticlesBackground from '../components/ParticlesBackground';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
@@ -48,32 +48,29 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-100 to-indigo-50 animate-gradient" style={{ backgroundSize: '200% 200%' }}>
-      {/* Minimal Abstract Background Elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
-      <div className="absolute top-[20%] right-[-10%] w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000"></div>
-      <div className="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-slate-300 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000"></div>
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white">
+      <ParticlesBackground />
 
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, type: "spring" }}
-        className="glass-panel p-10 w-full max-w-md relative z-10 animate-float"
+        className="bg-white/80 backdrop-blur-md p-10 w-full max-w-md relative z-10 border border-slate-200 rounded-2xl shadow-xl animate-float"
       >
         <motion.div variants={containerVariants} initial="hidden" animate="visible" className="text-center mb-8">
           <motion.div variants={itemVariants} className="flex justify-center mb-4">
-            <div className="p-4 bg-formal-light rounded-full border border-formal-border text-formal-primary shadow-sm">
+            <div className="p-4 bg-formal-primary text-white rounded-full shadow-sm">
               <UserPlus className="w-8 h-8" />
             </div>
           </motion.div>
-          <motion.h1 variants={itemVariants} className="text-2xl font-bold text-formal-dark mb-2">Sparshika CRM</motion.h1>
+          <motion.h1 variants={itemVariants} className="text-2xl font-bold text-formal-primary mb-2">Sparshika CRM</motion.h1>
           <motion.p variants={itemVariants} className="text-formal-secondary text-sm">Create a new client account.</motion.p>
         </motion.div>
 
         {error && (
           <motion.p 
             initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} 
-            className="text-red-600 text-center mb-6 text-sm bg-red-50 py-2 px-4 rounded-lg border border-red-200"
+            className="text-white text-center mb-6 text-sm bg-formal-danger py-2 px-4 rounded-lg border border-red-800 shadow-sm"
           >
             {error}
           </motion.p>
@@ -81,42 +78,42 @@ export default function Register() {
 
         <motion.form variants={containerVariants} initial="hidden" animate="visible" onSubmit={handleRegister} className="space-y-6">
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-formal-primary transition-colors">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-formal-accent transition-colors">
               <User size={18} />
             </div>
             <input 
               type="text" 
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full bg-formal-light border border-formal-border rounded-xl pl-12 pr-4 py-3 text-formal-dark focus:outline-none focus:border-formal-primary focus:ring-1 focus:ring-formal-primary transition-all placeholder-slate-400"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-formal-dark focus:outline-none focus:border-formal-accent focus:ring-1 focus:ring-formal-accent transition-all placeholder-slate-400"
               placeholder="Full Name"
               required
             />
           </motion.div>
           
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-formal-primary transition-colors">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-formal-accent transition-colors">
               <Mail size={18} />
             </div>
             <input 
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-formal-light border border-formal-border rounded-xl pl-12 pr-4 py-3 text-formal-dark focus:outline-none focus:border-formal-primary focus:ring-1 focus:ring-formal-primary transition-all placeholder-slate-400"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-formal-dark focus:outline-none focus:border-formal-accent focus:ring-1 focus:ring-formal-accent transition-all placeholder-slate-400"
               placeholder="Email Address"
               required
             />
           </motion.div>
           
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-formal-primary transition-colors">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-formal-accent transition-colors">
               <Lock size={18} />
             </div>
             <input 
               type="password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-formal-light border border-formal-border rounded-xl pl-12 pr-4 py-3 text-formal-dark focus:outline-none focus:border-formal-primary focus:ring-1 focus:ring-formal-primary transition-all placeholder-slate-400"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-formal-dark focus:outline-none focus:border-formal-accent focus:ring-1 focus:ring-formal-accent transition-all placeholder-slate-400"
               placeholder="Password"
               required
             />
@@ -126,7 +123,7 @@ export default function Register() {
             <motion.button 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-formal-primary hover:bg-formal-accent text-white font-semibold py-3 rounded-xl transition-all mt-2 border-none shadow-sm"
+              className="w-full bg-formal-primary hover:bg-formal-accent text-white font-semibold py-3 rounded-xl transition-all mt-2 border-none shadow-md"
               type="submit"
             >
               Create Account
@@ -140,7 +137,7 @@ export default function Register() {
           transition={{ delay: 0.8 }}
           className="mt-8 text-center text-sm text-formal-secondary"
         >
-          Already have an account? <Link to="/login" className="text-formal-primary font-semibold hover:text-formal-accent transition-colors underline-offset-4 hover:underline">Log In</Link>
+          Already have an account? <Link to="/login" className="text-formal-accent font-semibold hover:text-formal-primary transition-colors underline-offset-4 hover:underline">Log In</Link>
         </motion.div>
       </motion.div>
     </div>
