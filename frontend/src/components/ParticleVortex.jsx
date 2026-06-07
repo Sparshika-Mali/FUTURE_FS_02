@@ -9,7 +9,8 @@ const ParticleVortex = () => {
     let animationFrameId;
     let particles = [];
 
-    const colors = ['#f44336', '#2196f3', '#ffeb3b', '#9c27b0', '#ffffff'];
+    // Formal palette: Blues and Slate Grays
+    const colors = ['#2563eb', '#3b82f6', '#94a3b8', '#cbd5e1', '#64748b'];
 
     let mouse = { x: -1000, y: -1000, radius: 150 };
 
@@ -96,7 +97,8 @@ const ParticleVortex = () => {
     };
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; 
+      // Light formal background fill for trail effect
+      ctx.fillStyle = 'rgba(248, 250, 252, 0.3)'; 
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach(p => {
@@ -123,7 +125,7 @@ const ParticleVortex = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full z-0"
-      style={{ background: 'black', pointerEvents: 'auto' }}
+      style={{ background: '#f8fafc', pointerEvents: 'auto' }}
     />
   );
 };

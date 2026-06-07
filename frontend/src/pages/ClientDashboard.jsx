@@ -37,59 +37,55 @@ export default function ClientDashboard() {
 
   const getStatusColor = (status) => {
     switch(status) {
-      case 'New': return 'text-cosmic-neonCyan border-cosmic-neonCyan neon-shadow-cyan';
-      case 'Contacted': return 'text-cosmic-neonOrange border-cosmic-neonOrange neon-shadow-orange';
-      case 'Converted': return 'text-cosmic-emerald border-cosmic-emerald neon-shadow-emerald';
-      default: return 'text-gray-400 border-gray-400';
+      case 'New': return 'text-formal-primary bg-blue-50 border-blue-200';
+      case 'Contacted': return 'text-formal-warning bg-amber-50 border-amber-200';
+      case 'Converted': return 'text-formal-success bg-emerald-50 border-emerald-200';
+      default: return 'text-slate-500 bg-slate-50 border-slate-200';
     }
   };
 
   return (
-    <div className="min-h-screen bg-cosmic-gradient relative overflow-hidden flex flex-col">
-      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-cosmic-neonCyan opacity-5 blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-cosmic-neonOrange opacity-5 blur-[120px] pointer-events-none"></div>
-
-      <header className="glass-panel sticky top-0 z-20 px-6 py-4 flex justify-between items-center">
+    <div className="min-h-screen bg-formal-light relative flex flex-col font-sans">
+      <header className="bg-white border-b border-formal-border sticky top-0 z-20 px-6 py-4 flex justify-between items-center shadow-sm">
         <div>
-          <h1 className="text-xl font-bold text-white tracking-widest uppercase">Client Portal</h1>
-          <p className="text-xs text-gray-400 tracking-wider">Sparshika Communication Relay</p>
+          <h1 className="text-xl font-bold text-formal-dark tracking-wide">Client Portal</h1>
+          <p className="text-sm text-formal-secondary">Sparshika Communication Relay</p>
         </div>
         <div className="flex items-center space-x-6">
-          <div className="hidden md:flex items-center space-x-2 text-gray-300">
+          <div className="hidden md:flex items-center space-x-2 text-formal-secondary">
             <UserIcon size={16} />
             <span className="text-sm font-medium">{user.name}</span>
           </div>
           <button 
             onClick={handleLogout}
-            className="flex items-center space-x-2 text-gray-400 hover:text-cosmic-neonOrange transition-colors"
+            className="flex items-center space-x-2 text-formal-secondary hover:text-red-600 transition-colors font-medium"
           >
             <LogOut size={18} />
-            <span className="uppercase text-sm tracking-widest">Disconnect</span>
+            <span>Log Out</span>
           </button>
         </div>
       </header>
 
       <main className="flex-1 p-6 relative z-10 flex flex-col space-y-6 max-w-4xl mx-auto w-full mt-8">
         {!profile ? (
-          <div className="glass-panel p-10 text-center rounded-xl">
-            <Activity className="animate-pulse mx-auto text-cosmic-neonCyan mb-4" size={32} />
-            <h2 className="text-xl text-white">Initializing your secure channel...</h2>
+          <div className="bg-white border border-formal-border p-10 text-center rounded-xl shadow-sm">
+            <Activity className="animate-pulse mx-auto text-formal-primary mb-4" size={32} />
+            <h2 className="text-lg font-medium text-formal-dark">Loading your profile...</h2>
           </div>
         ) : (
           <>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="glass-panel p-8 rounded-xl relative overflow-hidden"
+              className="bg-white border border-formal-border p-8 rounded-xl shadow-sm relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full"></div>
-              <h2 className="text-sm uppercase tracking-widest text-gray-400 mb-1">Current Workflow Status</h2>
-              <div className={`inline-block px-6 py-2 mt-2 rounded-full font-bold text-lg border ${getStatusColor(profile.status)}`}>
+              <h2 className="text-sm font-bold text-formal-secondary uppercase mb-2">Current Status</h2>
+              <div className={`inline-block px-6 py-2 rounded-full font-bold text-sm border ${getStatusColor(profile.status)}`}>
                 {profile.status}
               </div>
-              <p className="mt-4 text-gray-300">
-                Welcome to your secure client portal, {profile.name}. We are currently processing your request. 
-                Any updates from our team will appear in your communication logs below.
+              <p className="mt-4 text-slate-600 leading-relaxed">
+                Welcome to your client portal, <span className="font-semibold text-formal-dark">{profile.name}</span>. We are currently reviewing your account details. 
+                Any updates from our team will appear in your activity log below.
               </p>
             </motion.div>
 
@@ -97,11 +93,13 @@ export default function ClientDashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="glass-panel p-8 rounded-xl flex-1 flex flex-col"
+              className="bg-white border border-formal-border rounded-xl shadow-sm flex-1 flex flex-col overflow-hidden"
             >
-              <h2 className="text-lg font-bold uppercase tracking-wider text-white mb-6 border-b border-white/10 pb-4">Communication Logs</h2>
-              <div className="bg-black/30 rounded-lg p-6 flex-1 min-h-[300px] border border-white/5 font-mono text-sm text-gray-300 whitespace-pre-wrap overflow-y-auto">
-                {profile.notes || "No incoming transmissions at this time."}
+              <div className="bg-slate-50 p-6 border-b border-formal-border">
+                <h2 className="text-lg font-bold text-formal-dark">Activity Log</h2>
+              </div>
+              <div className="p-6 flex-1 min-h-[300px] text-sm text-slate-700 whitespace-pre-wrap overflow-y-auto bg-white">
+                {profile.notes || "No recent activity recorded on your account."}
               </div>
             </motion.div>
           </>

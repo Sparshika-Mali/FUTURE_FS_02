@@ -48,8 +48,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
-      {/* Particle Vortex Background Effect */}
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <ParticleVortex />
 
       <motion.div 
@@ -60,18 +59,18 @@ export default function Register() {
       >
         <motion.div variants={containerVariants} initial="hidden" animate="visible" className="text-center mb-8">
           <motion.div variants={itemVariants} className="flex justify-center mb-4">
-            <div className="p-4 bg-cosmic-neonCyan/10 rounded-full border border-cosmic-neonCyan/30 shadow-[0_0_15px_rgba(0,243,255,0.3)]">
-              <UserPlus className="text-cosmic-neonCyan w-8 h-8" />
+            <div className="p-4 bg-formal-light rounded-full border border-formal-border text-formal-primary shadow-sm">
+              <UserPlus className="w-8 h-8" />
             </div>
           </motion.div>
-          <motion.h1 variants={itemVariants} className="text-3xl font-bold text-white tracking-widest uppercase mb-2">Sparshika CRM</motion.h1>
-          <motion.p variants={itemVariants} className="text-cosmic-neonCyan neon-text-cyan tracking-widest text-sm uppercase">Client Registration</motion.p>
+          <motion.h1 variants={itemVariants} className="text-2xl font-bold text-formal-dark mb-2">Sparshika CRM</motion.h1>
+          <motion.p variants={itemVariants} className="text-formal-secondary text-sm">Create a new client account.</motion.p>
         </motion.div>
 
         {error && (
           <motion.p 
             initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} 
-            className="text-red-400 text-center mb-6 text-sm bg-red-900/20 py-2 px-4 rounded-lg border border-red-500/30"
+            className="text-red-600 text-center mb-6 text-sm bg-red-50 py-2 px-4 rounded-lg border border-red-200"
           >
             {error}
           </motion.p>
@@ -79,55 +78,55 @@ export default function Register() {
 
         <motion.form variants={containerVariants} initial="hidden" animate="visible" onSubmit={handleRegister} className="space-y-6">
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-cosmic-neonCyan transition-colors">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-formal-primary transition-colors">
               <User size={18} />
             </div>
             <input 
               type="text" 
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white focus:outline-none focus:border-cosmic-neonCyan focus:ring-1 focus:ring-cosmic-neonCyan transition-all placeholder-gray-500"
+              className="w-full bg-formal-light border border-formal-border rounded-xl pl-12 pr-4 py-3 text-formal-dark focus:outline-none focus:border-formal-primary focus:ring-1 focus:ring-formal-primary transition-all placeholder-slate-400"
               placeholder="Full Name"
               required
             />
           </motion.div>
           
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-cosmic-neonCyan transition-colors">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-formal-primary transition-colors">
               <Mail size={18} />
             </div>
             <input 
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white focus:outline-none focus:border-cosmic-neonCyan focus:ring-1 focus:ring-cosmic-neonCyan transition-all placeholder-gray-500"
-              placeholder="Email Identifier"
+              className="w-full bg-formal-light border border-formal-border rounded-xl pl-12 pr-4 py-3 text-formal-dark focus:outline-none focus:border-formal-primary focus:ring-1 focus:ring-formal-primary transition-all placeholder-slate-400"
+              placeholder="Email Address"
               required
             />
           </motion.div>
           
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-cosmic-neonCyan transition-colors">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-formal-primary transition-colors">
               <Lock size={18} />
             </div>
             <input 
               type="password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white focus:outline-none focus:border-cosmic-neonCyan focus:ring-1 focus:ring-cosmic-neonCyan transition-all placeholder-gray-500"
-              placeholder="Passcode"
+              className="w-full bg-formal-light border border-formal-border rounded-xl pl-12 pr-4 py-3 text-formal-dark focus:outline-none focus:border-formal-primary focus:ring-1 focus:ring-formal-primary transition-all placeholder-slate-400"
+              placeholder="Password"
               required
             />
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <motion.button 
-              whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(0, 243, 255, 0.5)" }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-gradient-to-r from-cosmic-neonCyan to-blue-500 text-white font-bold py-3 rounded-xl uppercase tracking-wider transition-all mt-2 border-none"
+              className="w-full bg-formal-primary hover:bg-formal-accent text-white font-semibold py-3 rounded-xl transition-all mt-2 border-none shadow-sm"
               type="submit"
             >
-              Initialize Link
+              Create Account
             </motion.button>
           </motion.div>
         </motion.form>
@@ -136,9 +135,9 @@ export default function Register() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-8 text-center text-sm text-gray-400"
+          className="mt-8 text-center text-sm text-formal-secondary"
         >
-          Already established a link? <Link to="/login" className="text-cosmic-neonCyan font-semibold hover:text-white transition-colors underline-offset-4 hover:underline">Authenticate Here</Link>
+          Already have an account? <Link to="/login" className="text-formal-primary font-semibold hover:text-formal-accent transition-colors underline-offset-4 hover:underline">Log In</Link>
         </motion.div>
       </motion.div>
     </div>

@@ -7,18 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        cosmic: {
-          dark: '#050515',
-          darker: '#0c0822',
-          neonCyan: '#00f3ff',
-          neonOrange: '#ff7300',
-          emerald: '#10b981',
-          magenta: '#ff00ff',
-          purple: '#8a2be2'
+        formal: {
+          primary: '#2563eb',    // Blue 600
+          secondary: '#475569',  // Slate 600
+          accent: '#3b82f6',     // Blue 500
+          light: '#f8fafc',      // Slate 50
+          dark: '#0f172a',       // Slate 900
+          success: '#10b981',    // Emerald 500
+          warning: '#f59e0b',    // Amber 500
+          border: '#e2e8f0',     // Slate 200
+          card: '#ffffff'
         }
       },
       backgroundImage: {
-        'cosmic-gradient': 'linear-gradient(to bottom right, #050515, #0c0822, #1a0b2e)',
+        'formal-gradient': 'linear-gradient(to bottom right, #f8fafc, #e2e8f0, #cbd5e1)',
       },
       animation: {
         blob: "blob 7s infinite",
@@ -41,7 +43,7 @@ export default {
         },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-20px)" },
+          "50%": { transform: "translateY(-10px)" },
         }
       }
     },

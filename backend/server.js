@@ -28,7 +28,7 @@ app.use(express.json());
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('🚀 Smoothly connected to Nexus Cloud CRM'))
+  .then(() => console.log('🚀 Smoothly connected to CRM'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
 // --- Schemas ---

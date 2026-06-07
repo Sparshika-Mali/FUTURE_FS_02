@@ -78,8 +78,8 @@ export default function AdminDashboard() {
   };
 
   const handleDeleteLead = async (id, e) => {
-    e.stopPropagation(); // Prevent opening the edit drawer
-    if (!window.confirm('Are you sure you want to delete this signal? This action cannot be undone.')) return;
+    e.stopPropagation();
+    if (!window.confirm('Are you sure you want to delete this lead? This action cannot be undone.')) return;
     
     const token = localStorage.getItem('token');
     try {
@@ -102,10 +102,10 @@ export default function AdminDashboard() {
 
   const getStatusColor = (status) => {
     switch(status) {
-      case 'New': return 'text-cosmic-neonCyan border-cosmic-neonCyan neon-shadow-cyan';
-      case 'Contacted': return 'text-cosmic-neonOrange border-cosmic-neonOrange neon-shadow-orange';
-      case 'Converted': return 'text-cosmic-emerald border-cosmic-emerald neon-shadow-emerald';
-      default: return 'text-gray-400 border-gray-400';
+      case 'New': return 'text-formal-primary bg-blue-50 border-blue-200';
+      case 'Contacted': return 'text-formal-warning bg-amber-50 border-amber-200';
+      case 'Converted': return 'text-formal-success bg-emerald-50 border-emerald-200';
+      default: return 'text-slate-500 bg-slate-50 border-slate-200';
     }
   };
 
@@ -114,21 +114,18 @@ export default function AdminDashboard() {
   const convertedLeads = leads.filter(l => l.status === 'Converted').length;
 
   return (
-    <div className="min-h-screen bg-cosmic-gradient relative overflow-hidden flex flex-col">
-      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-cosmic-neonCyan opacity-5 blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-cosmic-emerald opacity-5 blur-[120px] pointer-events-none"></div>
-
-      <header className="glass-panel sticky top-0 z-20 px-6 py-4 flex justify-between items-center">
+    <div className="min-h-screen bg-formal-light relative overflow-hidden flex flex-col font-sans">
+      <header className="bg-white border-b border-formal-border sticky top-0 z-20 px-6 py-4 flex justify-between items-center shadow-sm">
         <div>
-          <h1 className="text-xl font-bold text-white tracking-widest uppercase">Admin Dashboard</h1>
-          <p className="text-xs text-gray-400 tracking-wider">Sparshika CRM System</p>
+          <h1 className="text-xl font-bold text-formal-dark tracking-wide">Sparshika CRM</h1>
+          <p className="text-sm text-formal-secondary">Administrator Dashboard</p>
         </div>
         <button 
           onClick={handleLogout}
-          className="flex items-center space-x-2 text-gray-300 hover:text-cosmic-neonOrange transition-colors"
+          className="flex items-center space-x-2 text-formal-secondary hover:text-red-600 transition-colors font-medium"
         >
           <LogOut size={18} />
-          <span className="uppercase text-sm tracking-widest">Disconnect</span>
+          <span>Log Out</span>
         </button>
       </header>
 
@@ -139,13 +136,13 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="glass-panel p-6 rounded-xl flex items-center justify-between group hover:border-white/20 transition-all"
+            className="bg-white p-6 rounded-xl shadow-sm border border-formal-border flex items-center justify-between"
           >
             <div>
-              <p className="text-gray-400 text-sm uppercase tracking-wider mb-1">Total Signals</p>
-              <h2 className="text-4xl font-bold text-white">{totalLeads}</h2>
+              <p className="text-formal-secondary text-sm font-medium mb-1">Total Leads</p>
+              <h2 className="text-4xl font-bold text-formal-dark">{totalLeads}</h2>
             </div>
-            <div className="p-3 bg-white/5 rounded-lg text-white">
+            <div className="p-3 bg-blue-50 rounded-lg text-formal-primary">
               <Users size={24} />
             </div>
           </motion.div>
@@ -154,13 +151,13 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="glass-panel p-6 rounded-xl flex items-center justify-between hover:border-white/20 transition-all group"
+            className="bg-white p-6 rounded-xl shadow-sm border border-formal-border flex items-center justify-between"
           >
             <div>
-              <p className="text-gray-400 text-sm uppercase tracking-wider mb-1">Contacted</p>
-              <h2 className="text-4xl font-bold text-cosmic-neonOrange neon-text-orange">{contactedLeads}</h2>
+              <p className="text-formal-secondary text-sm font-medium mb-1">Contacted</p>
+              <h2 className="text-4xl font-bold text-formal-warning">{contactedLeads}</h2>
             </div>
-            <div className="p-3 bg-cosmic-neonOrange/10 rounded-lg text-cosmic-neonOrange">
+            <div className="p-3 bg-amber-50 rounded-lg text-formal-warning">
               <PhoneCall size={24} />
             </div>
           </motion.div>
@@ -169,13 +166,13 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="glass-panel p-6 rounded-xl flex items-center justify-between hover:border-white/20 transition-all group"
+            className="bg-white p-6 rounded-xl shadow-sm border border-formal-border flex items-center justify-between"
           >
             <div>
-              <p className="text-gray-400 text-sm uppercase tracking-wider mb-1">Converted</p>
-              <h2 className="text-4xl font-bold text-cosmic-emerald neon-text-emerald">{convertedLeads}</h2>
+              <p className="text-formal-secondary text-sm font-medium mb-1">Converted</p>
+              <h2 className="text-4xl font-bold text-formal-success">{convertedLeads}</h2>
             </div>
-            <div className="p-3 bg-cosmic-emerald/10 rounded-lg text-cosmic-emerald">
+            <div className="p-3 bg-emerald-50 rounded-lg text-formal-success">
               <CheckCircle size={24} />
             </div>
           </motion.div>
@@ -185,21 +182,21 @@ export default function AdminDashboard() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="glass-panel rounded-xl flex-1 overflow-hidden flex flex-col"
+          className="bg-white rounded-xl shadow-sm border border-formal-border flex-1 overflow-hidden flex flex-col"
         >
-          <div className="p-6 border-b border-white/10 flex justify-between items-center">
-            <h2 className="text-lg font-semibold uppercase tracking-wider">Client Inventory</h2>
+          <div className="p-6 border-b border-formal-border flex justify-between items-center bg-slate-50/50">
+            <h2 className="text-lg font-semibold text-formal-dark">Client Roster</h2>
           </div>
           
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-white/5 text-gray-400 text-sm uppercase tracking-wider">
-                  <th className="p-4 font-medium border-b border-white/10">Name</th>
-                  <th className="p-4 font-medium border-b border-white/10">Email</th>
-                  <th className="p-4 font-medium border-b border-white/10">Source</th>
-                  <th className="p-4 font-medium border-b border-white/10">Status</th>
-                  <th className="p-4 font-medium border-b border-white/10 text-right">Actions</th>
+                <tr className="bg-slate-50 text-formal-secondary text-sm">
+                  <th className="p-4 font-semibold border-b border-formal-border">Name</th>
+                  <th className="p-4 font-semibold border-b border-formal-border">Email</th>
+                  <th className="p-4 font-semibold border-b border-formal-border">Source</th>
+                  <th className="p-4 font-semibold border-b border-formal-border">Status</th>
+                  <th className="p-4 font-semibold border-b border-formal-border text-right">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -211,32 +208,32 @@ export default function AdminDashboard() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ delay: index * 0.05 }}
-                      className="border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer group"
+                      className="border-b border-slate-100 hover:bg-slate-50 transition-colors cursor-pointer group"
                       onClick={() => openDrawer(lead)}
                     >
-                      <td className="p-4 font-medium text-gray-200">{lead.name}</td>
-                      <td className="p-4 text-gray-400">{lead.email}</td>
-                      <td className="p-4 text-gray-400 text-sm">{lead.source}</td>
+                      <td className="p-4 font-medium text-slate-800">{lead.name}</td>
+                      <td className="p-4 text-slate-600">{lead.email}</td>
+                      <td className="p-4 text-slate-500 text-sm">{lead.source}</td>
                       <td className="p-4">
                         <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${getStatusColor(lead.status)}`}>
                           {lead.status}
                         </span>
                       </td>
                       <td className="p-4 text-right">
-                        <div className="flex justify-end space-x-3 opacity-50 group-hover:opacity-100 transition-opacity">
+                        <div className="flex justify-end space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
                           <button 
                             onClick={(e) => { e.stopPropagation(); openDrawer(lead); }}
-                            className="text-gray-400 hover:text-cosmic-neonCyan transition-colors p-2 rounded-lg hover:bg-white/5"
-                            title="Edit Signal"
+                            className="text-slate-400 hover:text-formal-primary transition-colors p-2 rounded hover:bg-white shadow-sm border border-transparent hover:border-slate-200"
+                            title="Edit Lead"
                           >
-                            <Edit size={18} />
+                            <Edit size={16} />
                           </button>
                           <button 
                             onClick={(e) => handleDeleteLead(lead._id, e)}
-                            className="text-gray-400 hover:text-red-500 transition-colors p-2 rounded-lg hover:bg-white/5"
-                            title="Delete Signal"
+                            className="text-slate-400 hover:text-red-500 transition-colors p-2 rounded hover:bg-white shadow-sm border border-transparent hover:border-slate-200"
+                            title="Delete Lead"
                           >
-                            <Trash2 size={18} />
+                            <Trash2 size={16} />
                           </button>
                         </div>
                       </td>
@@ -245,8 +242,8 @@ export default function AdminDashboard() {
                 </AnimatePresence>
                 {leads.length === 0 && (
                   <tr>
-                    <td colSpan="5" className="p-8 text-center text-gray-500">
-                      No signals detected in the sector.
+                    <td colSpan="5" className="p-8 text-center text-slate-500">
+                      No leads found in the system.
                     </td>
                   </tr>
                 )}
@@ -263,7 +260,7 @@ export default function AdminDashboard() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 z-40"
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40"
               onClick={closeDrawer}
             />
             <motion.div 
@@ -271,62 +268,62 @@ export default function AdminDashboard() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-full max-w-md bg-[#0c0822]/95 backdrop-blur-xl shadow-2xl border-l border-white/10 z-50 flex flex-col"
+              className="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl border-l border-slate-200 z-50 flex flex-col"
             >
-              <div className="p-6 border-b border-white/10 flex justify-between items-center bg-white/5">
-                <h2 className="text-xl font-bold uppercase tracking-wider">Modify Signal</h2>
-                <button onClick={closeDrawer} className="text-gray-400 hover:text-white transition-colors">
-                  <X size={24} />
+              <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+                <h2 className="text-lg font-bold text-formal-dark">Update Lead Details</h2>
+                <button onClick={closeDrawer} className="text-slate-400 hover:text-slate-700 transition-colors">
+                  <X size={20} />
                 </button>
               </div>
 
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                <div>
-                  <h3 className="text-sm text-gray-400 uppercase tracking-wider mb-1">Entity Details</h3>
-                  <p className="text-xl font-bold text-white">{selectedLead?.name}</p>
-                  <p className="text-gray-400">{selectedLead?.email}</p>
-                  <p className="text-sm text-gray-500 mt-2">Source: {selectedLead?.source}</p>
+                <div className="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                  <h3 className="text-xs text-formal-secondary font-semibold uppercase mb-1">Contact Info</h3>
+                  <p className="text-lg font-bold text-formal-dark">{selectedLead?.name}</p>
+                  <p className="text-slate-600 text-sm">{selectedLead?.email}</p>
+                  <p className="text-xs text-slate-500 mt-2">Source: {selectedLead?.source}</p>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2 uppercase tracking-wider">Workflow State</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Status</label>
                   <select 
                     value={editStatus}
                     onChange={(e) => setEditStatus(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cosmic-neonCyan transition-all"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-700 focus:outline-none focus:border-formal-primary focus:ring-1 focus:ring-formal-primary transition-all shadow-sm"
                   >
-                    <option value="New" className="bg-cosmic-darker">New</option>
-                    <option value="Contacted" className="bg-cosmic-darker">Contacted</option>
-                    <option value="Converted" className="bg-cosmic-darker">Converted</option>
+                    <option value="New">New</option>
+                    <option value="Contacted">Contacted</option>
+                    <option value="Converted">Converted</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2 uppercase tracking-wider">Append Logs</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Add New Note</label>
                   <textarea 
                     value={newNote}
                     onChange={(e) => setNewNote(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cosmic-neonCyan transition-all h-24 resize-none"
-                    placeholder="Enter mission notes..."
+                    className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-700 focus:outline-none focus:border-formal-primary focus:ring-1 focus:ring-formal-primary transition-all h-24 resize-none shadow-sm"
+                    placeholder="Enter meeting notes, call summaries, etc..."
                   />
                 </div>
 
                 <div>
-                  <h3 className="text-sm text-gray-400 uppercase tracking-wider mb-3">Communication Logs</h3>
-                  <div className="bg-white/5 rounded-lg p-4 border border-white/10 max-h-48 overflow-y-auto text-sm whitespace-pre-wrap text-gray-300 font-mono">
-                    {selectedLead?.notes || "No logs available."}
+                  <h3 className="text-sm font-medium text-slate-700 mb-2">Activity Log</h3>
+                  <div className="bg-slate-50 rounded-lg p-4 border border-slate-200 max-h-48 overflow-y-auto text-sm whitespace-pre-wrap text-slate-600 font-sans shadow-inner">
+                    {selectedLead?.notes || "No activity logged yet."}
                   </div>
                 </div>
               </div>
 
-              <div className="p-6 border-t border-white/10 bg-white/5">
+              <div className="p-6 border-t border-slate-200 bg-slate-50">
                 <motion.button 
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleUpdateLead}
-                  className="w-full bg-transparent border border-cosmic-neonCyan text-cosmic-neonCyan neon-text-cyan font-bold py-3 rounded-lg uppercase tracking-wider hover:bg-cosmic-neonCyan hover:text-cosmic-darker transition-all"
+                  className="w-full bg-formal-primary text-white font-semibold py-3 rounded-lg hover:bg-formal-accent transition-all shadow-sm"
                 >
-                  Save Modifications
+                  Save Changes
                 </motion.button>
               </div>
             </motion.div>
