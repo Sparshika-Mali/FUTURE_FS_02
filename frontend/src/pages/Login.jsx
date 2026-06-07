@@ -65,18 +65,18 @@ export default function Login() {
       >
         <motion.div variants={containerVariants} initial="hidden" animate="visible" className="text-center mb-8">
           <motion.div variants={itemVariants} className="flex justify-center mb-4">
-            <div className="p-4 bg-vibrant-primary text-white rounded-full shadow-sm">
+            <div className="p-4 bg-indigo-500 text-white rounded-full shadow-sm">
               <LogIn className="w-8 h-8" />
             </div>
           </motion.div>
-          <motion.h1 variants={itemVariants} className="text-2xl font-bold text-vibrant-primary mb-2">Mini CRM</motion.h1>
-          <motion.p variants={itemVariants} className="text-vibrant-secondary text-sm">Welcome Back. Please log in to your account.</motion.p>
+          <motion.h1 variants={itemVariants} className="text-2xl font-bold text-indigo-500 mb-2">Mini CRM</motion.h1>
+          <motion.p variants={itemVariants} className="text-violet-500 text-sm">Welcome Back. Please log in to your account.</motion.p>
         </motion.div>
 
         {error && (
           <motion.p 
             initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} 
-            className="text-vibrant-danger font-semibold text-center mb-6 text-sm bg-red-50 py-2 px-4 rounded-lg border border-red-200 shadow-sm"
+            className="text-red-500 font-semibold text-center mb-6 text-sm bg-red-50 py-2 px-4 rounded-lg border border-red-200 shadow-sm"
           >
             {error}
           </motion.p>
@@ -84,28 +84,28 @@ export default function Login() {
 
         <motion.form variants={containerVariants} initial="hidden" animate="visible" onSubmit={handleLogin} className="space-y-6">
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-vibrant-accent transition-colors">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-pink-500 transition-colors">
               <Mail size={18} />
             </div>
             <input 
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-vibrant-dark focus:outline-none focus:border-vibrant-accent focus:ring-1 focus:ring-vibrant-accent transition-all placeholder-slate-400"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-indigo-900 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all placeholder-slate-400"
               placeholder="Email Address"
               required
             />
           </motion.div>
           
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-vibrant-accent transition-colors">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-pink-500 transition-colors">
               <Lock size={18} />
             </div>
             <input 
               type="password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-vibrant-dark focus:outline-none focus:border-vibrant-accent focus:ring-1 focus:ring-vibrant-accent transition-all placeholder-slate-400"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-indigo-900 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all placeholder-slate-400"
               placeholder="Password"
               required
             />
