@@ -23,13 +23,31 @@ const leadSchema = new mongoose.Schema({
 const Lead = mongoose.model('Lead', leadSchema);
 
 const demoLeads = [
-  { name: 'Rahul Sharma', email: 'rahul.s@techindia.com', source: 'LinkedIn Ads', status: 'New', notes: '' },
-  { name: 'Priya Singh', email: 'priya.singh@innovate.in', source: 'Website Contact Form', status: 'Contacted', notes: '[2026-06-03 10:30 AM] Called left voicemail.' },
-  { name: 'Amit Patel', email: 'amit.p@globaltrade.in', source: 'Referral', status: 'Converted', notes: '[2026-06-01 14:15 PM] Signed annual contract.' },
+  { name: 'Rahul Sharma', email: 'rahul.s@techindia.com', source: 'LinkedIn', status: 'New', notes: '' },
+  { name: 'Priya Singh', email: 'priya.singh@innovate.in', source: 'Website', status: 'Contacted', notes: 'Called left voicemail.' },
+  { name: 'Amit Patel', email: 'amit.p@globaltrade.in', source: 'Referral', status: 'Converted', notes: 'Signed annual contract.' },
   { name: 'Neha Gupta', email: 'ngupta@enterprise.co.in', source: 'Google Ads', status: 'New', notes: '' },
-  { name: 'Karan Desai', email: 'kdesai@startupsolutions.in', source: 'Conference Lead', status: 'Contacted', notes: '[2026-06-02 09:00 AM] Sent follow-up email with pricing deck.' },
-  { name: 'Anjali Verma', email: 'averma@retailgroup.in', source: 'Website Contact Form', status: 'New', notes: '' },
-  { name: 'Rohan Mehta', email: 'rmehta@marketingpro.in', source: 'Webinar Registration', status: 'Converted', notes: '[2026-05-28 11:45 AM] Upgraded to premium tier.' }
+  { name: 'Karan Desai', email: 'kdesai@startupsolutions.in', source: 'Conference', status: 'Contacted', notes: 'Sent follow-up email.' },
+  { name: 'Anjali Verma', email: 'averma@retailgroup.in', source: 'Website', status: 'New', notes: '' },
+  { name: 'Rohan Mehta', email: 'rmehta@marketingpro.in', source: 'Webinar', status: 'Converted', notes: 'Upgraded to premium tier.' },
+  { name: 'Sneha Kapoor', email: 'sneha.k@designco.in', source: 'Social Media', status: 'New', notes: '' },
+  { name: 'Vikram Singh', email: 'vsingh@logistics.com', source: 'Referral', status: 'Contacted', notes: 'Scheduled demo for next Tuesday.' },
+  { name: 'Aditi Rao', email: 'arao@financehub.in', source: 'Google Ads', status: 'New', notes: '' },
+  { name: 'Deepak Kumar', email: 'deepak.k@builderpro.in', source: 'Cold Call', status: 'Converted', notes: 'Closed deal for Q3.' },
+  { name: 'Meera Reddy', email: 'mreddy@healthcare.in', source: 'Website', status: 'Contacted', notes: 'Requested pricing sheet.' },
+  { name: 'Sanjay Dutt', email: 'sdutt@manufacture.in', source: 'LinkedIn', status: 'New', notes: '' },
+  { name: 'Pooja Joshi', email: 'pjoshi@education.in', source: 'Conference', status: 'Converted', notes: 'Signed 2-year agreement.' },
+  { name: 'Tarun Bajaj', email: 'tbajaj@autoindia.in', source: 'Google Ads', status: 'Contacted', notes: 'Interested in enterprise features.' },
+  { name: 'Kavita Iyer', email: 'kiyer@software.in', source: 'Webinar', status: 'New', notes: '' },
+  { name: 'Rajiv Menon', email: 'rmenon@consulting.in', source: 'Referral', status: 'Contacted', notes: 'Needs approval from board.' },
+  { name: 'Simran Kaur', email: 'skaur@travelco.in', source: 'Website', status: 'Converted', notes: 'Payment received.' },
+  { name: 'Arjun Nair', email: 'anair@mediahouse.in', source: 'Social Media', status: 'New', notes: '' },
+  { name: 'Divya Prakash', email: 'dprakash@energy.in', source: 'LinkedIn', status: 'Contacted', notes: 'Follow up next month.' },
+  { name: 'Manish Tiwari', email: 'mtiwari@realestate.in', source: 'Google Ads', status: 'Converted', notes: 'Onboarding completed.' },
+  { name: 'Nisha Sharma', email: 'nsharma@hospitality.in', source: 'Cold Call', status: 'New', notes: '' },
+  { name: 'Gaurav Jain', email: 'gjain@retailer.in', source: 'Website', status: 'Contacted', notes: 'Evaluating against competitor.' },
+  { name: 'Ritu Agarwal', email: 'ragarwal@ecommerce.in', source: 'Referral', status: 'Converted', notes: 'Signed up for basic plan.' },
+  { name: 'Anil Chopra', email: 'achopra@pharma.in', source: 'Conference', status: 'New', notes: '' }
 ];
 
 async function seedDatabase() {
