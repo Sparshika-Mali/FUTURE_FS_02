@@ -76,7 +76,7 @@ export default function Login() {
         {error && (
           <motion.p 
             initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} 
-            className="text-white text-center mb-6 text-sm bg-formal-danger py-2 px-4 rounded-lg border border-red-800 shadow-sm"
+            className="text-formal-danger font-semibold text-center mb-6 text-sm bg-red-50 py-2 px-4 rounded-lg border border-red-200 shadow-sm"
           >
             {error}
           </motion.p>
