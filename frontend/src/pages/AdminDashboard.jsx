@@ -103,7 +103,7 @@ export default function AdminDashboard() {
 
   const getStatusColor = (status) => {
     switch(status) {
-      case 'New': return 'text-vibrant-primary bg-indigo-50 border-indigo-200';
+      case 'New': return 'text-indigo-500 bg-indigo-50 border-indigo-200';
       case 'Contacted': return 'text-vibrant-warning bg-orange-50 border-orange-200';
       case 'Converted': return 'text-vibrant-success bg-green-50 border-green-200';
       default: return 'text-slate-500 bg-slate-50 border-slate-200';
@@ -119,12 +119,12 @@ export default function AdminDashboard() {
       <ParticlesBackground />
       <header className="bg-white/80 backdrop-blur-md border-b border-vibrant-border sticky top-0 z-20 px-6 py-4 flex justify-between items-center shadow-sm">
         <div>
-          <h1 className="text-xl font-bold text-vibrant-primary tracking-wide">Mini CRM</h1>
-          <p className="text-sm text-vibrant-secondary">Administrator Dashboard</p>
+          <h1 className="text-xl font-bold text-indigo-500 tracking-wide">Mini CRM</h1>
+          <p className="text-sm text-violet-500">Administrator Dashboard</p>
         </div>
         <button 
           onClick={handleLogout}
-          className="flex items-center space-x-2 text-vibrant-secondary hover:text-vibrant-danger transition-colors font-medium"
+          className="flex items-center space-x-2 text-violet-500 hover:text-red-500 transition-colors font-medium"
         >
           <LogOut size={18} />
           <span>Log Out</span>
@@ -141,10 +141,10 @@ export default function AdminDashboard() {
             className="bg-white p-6 rounded-xl shadow-sm border border-vibrant-border flex items-center justify-between"
           >
             <div>
-              <p className="text-vibrant-secondary text-sm font-medium mb-1">Total Leads</p>
-              <h2 className="text-4xl font-bold text-vibrant-dark">{totalLeads}</h2>
+              <p className="text-violet-500 text-sm font-medium mb-1">Total Leads</p>
+              <h2 className="text-4xl font-bold text-indigo-900">{totalLeads}</h2>
             </div>
-            <div className="p-3 bg-indigo-50 rounded-lg text-vibrant-primary">
+            <div className="p-3 bg-indigo-50 rounded-lg text-indigo-500">
               <Users size={24} />
             </div>
           </motion.div>
@@ -156,7 +156,7 @@ export default function AdminDashboard() {
             className="bg-white p-6 rounded-xl shadow-sm border border-vibrant-border flex items-center justify-between"
           >
             <div>
-              <p className="text-vibrant-secondary text-sm font-medium mb-1">Contacted</p>
+              <p className="text-violet-500 text-sm font-medium mb-1">Contacted</p>
               <h2 className="text-4xl font-bold text-vibrant-warning">{contactedLeads}</h2>
             </div>
             <div className="p-3 bg-orange-50 rounded-lg text-vibrant-warning">
@@ -171,7 +171,7 @@ export default function AdminDashboard() {
             className="bg-white p-6 rounded-xl shadow-sm border border-vibrant-border flex items-center justify-between"
           >
             <div>
-              <p className="text-vibrant-secondary text-sm font-medium mb-1">Converted</p>
+              <p className="text-violet-500 text-sm font-medium mb-1">Converted</p>
               <h2 className="text-4xl font-bold text-vibrant-success">{convertedLeads}</h2>
             </div>
             <div className="p-3 bg-green-50 rounded-lg text-vibrant-success">
@@ -187,13 +187,13 @@ export default function AdminDashboard() {
           className="bg-white rounded-xl shadow-sm border border-vibrant-border flex-1 overflow-hidden flex flex-col"
         >
           <div className="p-6 border-b border-vibrant-border flex justify-between items-center bg-slate-50/50">
-            <h2 className="text-lg font-semibold text-vibrant-dark">Client Roster</h2>
+            <h2 className="text-lg font-semibold text-indigo-900">Client Roster</h2>
           </div>
           
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-slate-50 text-vibrant-secondary text-sm">
+                <tr className="bg-slate-50 text-violet-500 text-sm">
                   <th className="p-4 font-semibold border-b border-vibrant-border">Name</th>
                   <th className="p-4 font-semibold border-b border-vibrant-border">Email</th>
                   <th className="p-4 font-semibold border-b border-vibrant-border">Source</th>
@@ -225,7 +225,7 @@ export default function AdminDashboard() {
                         <div className="flex justify-end space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
                           <button 
                             onClick={(e) => { e.stopPropagation(); openDrawer(lead); }}
-                            className="text-slate-400 hover:text-vibrant-primary transition-colors p-2 rounded hover:bg-white shadow-sm border border-transparent hover:border-slate-200"
+                            className="text-slate-400 hover:text-indigo-500 transition-colors p-2 rounded hover:bg-white shadow-sm border border-transparent hover:border-slate-200"
                             title="Edit Lead"
                           >
                             <Edit size={16} />
@@ -323,7 +323,7 @@ export default function AdminDashboard() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleUpdateLead}
-                  className="w-full bg-vibrant-primary text-white font-semibold py-3 rounded-lg hover:bg-vibrant-accent transition-all shadow-sm"
+                  className="w-full bg-vibrant-primary text-white font-semibold py-3 rounded-lg hover:bg-pink-500 transition-all shadow-sm"
                 >
                   Save Changes
                 </motion.button>
